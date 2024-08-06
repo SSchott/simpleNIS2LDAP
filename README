@@ -1,0 +1,16 @@
+SSchott NIS2LDAP
+
+Set of scripts used to migrate a NIS setup to a simplified LDAP/SSS setup in OpenSUSE. 
+Note (grep) all "YOUR" variables written throughout the files, which should be adapted (sed) depending on the server to information.
+
+nis2ldif.py should generate an initial ldap config file by parsing /etc. The output can be used with commands as specified in reset_ldap.sh
+activate_ldap.sh should be the minimal commands to enable the setup in the slave nodes.
+
+Check OpenSUSE documentation about the SSS/LDAP setup with 389ds here, and install the packages mentioned: 
+https://doc.opensuse.org/documentation/leap/security/html/book-security/cha-security-ldap.html
+
+(At least) the following files have to be configured at some point:
+/etc/ldap.conf
+/etc/nsswitch.conf
+/etc/pam.d/* (by pam agent)
+/etc/sssd/sssd.conf
